@@ -1,4 +1,16 @@
-This is a test
+Planning the app
+    Components:
+        Root (app)
+            Header
+                [FEATURE] Shopping List
+                    Shopping List
+                    Shopping List Edit
+                    [MODEL] Ingredient
+                [FEATURE] Recipe Book
+                    Recipe List
+                    Recipe Item
+                    Recipe Detail
+                    [MODEL] Recipe
 
 ---
 
