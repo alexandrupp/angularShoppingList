@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
-            <button class="btn btn-success" (click)="onStartGame()">Start game</button>
-            <button class="btn btn-danger" (click)="onStopGame()">Stop Game</button>
+            <button class="btn btn-success" (click)="onStartGame()" [disabled]="gameInProgress">Start game</button>
+            <button class="btn btn-danger" (click)="onStopGame()" [disabled]="!gameInProgress">Stop Game</button>
         </div>
     </div>
 </div>

@@ -9,6 +9,7 @@ export class GameControlComponent implements OnInit {
 
   @Output("start") startGame = new EventEmitter<{ newNumber: number }>();
 
+  gameInProgress: boolean = false
   incrementingNumber: number = 0;
   interval;
   constructor() { }
@@ -17,6 +18,7 @@ export class GameControlComponent implements OnInit {
   }
 
   onStartGame() {
+    this.gameInProgress = true;
     this.interval = setInterval(()=>{
       this.doSomething();
     }, 1000);
@@ -28,6 +30,7 @@ export class GameControlComponent implements OnInit {
   }
 
   onStopGame() {
+    this.gameInProgress= false;
     if(this.interval)
       clearInterval(this.interval);
   }
