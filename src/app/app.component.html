@@ -22,11 +22,11 @@
     (start)="startInAppComponent($event)"
   ></app-game-control>
   <br>
-  <app-number-container *ngFor="let number of numbers">
+  <div *ngFor="let number of numbers">
     <app-odd *ngIf="number%2==1; else evenNumber" [returnedNumber]="number" [class.oddApp]="oddOdd">Odd</app-odd>
     <ng-template #evenNumber><app-even [returnedNumber]="number" [class.evenApp]="evenEven">Even</app-even></ng-template>
     
-  </app-number-container>
+  </div>
   <br><label>Assignment's End</label>
 
   <hr>
