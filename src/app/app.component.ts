@@ -8,9 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   //Assignment's Start
+  numbers: number[] = [];
 
   startInAppComponent(startData: {newNumber: number}){
-    console.log(startData.newNumber);
+    this.numbers.push(startData.newNumber);
   }
 
   //Assignment's End

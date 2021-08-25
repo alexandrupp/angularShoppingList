@@ -3,27 +3,33 @@
   <label>Assignment Data Binding</label>
 
   <h3>Bind it!</h3>
-      <ol>
-        <li style="color:green">Create three new components: GameControl, Odd and Even</li>
-        <li style="color:green">The GameControl Component should have buttons to start and stop the game</li>
-        <li style="color:green">When starting the game, an event (holding a incrementing number) should get emitted each second (ref = setInterval())</li>
-        <li style="color:green">The event should be listenable from outside the component</li>
-        <li style="color:green">When stopping the game, no more events should get emitted (clearInterval(ref))</li>
-        <li>A new Odd component should get created for every odd number emitted, the same should happen for the Even Component (on even numbers)</li>
-        <li>Simply output Odd - NUMBER or Even - NUMBER in the two components</li>
-        <li>Style the element (e.g. paragraph) holding your output text differently in both components</li>
-      </ol>
+  <ol>
+    <li>Create three new components: GameControl, Odd and Even</li>
+    <li>The GameControl Component should have buttons to start and stop the game</li>
+    <li>When starting the game, an event (holding a incrementing number) should get emitted each second (ref = setInterval())</li>
+    <li>The event should be listenable from outside the component</li>
+    <li>When stopping the game, no more events should get emitted (clearInterval(ref))</li>
+    <li>A new Odd component should get created for every odd number emitted, the same should happen for the Even Component (on even numbers)</li>
+    <li>Simply output Odd - NUMBER or Even - NUMBER in the two components</li>
+    <li>Style the element (e.g. paragraph) holding your output text differently in both components</li>
+  </ol>
 
-    <hr>
+  <hr>
 
-    <label>Assignment's Solution</label>
+  <label>Assignment's Solution</label>
 
-    <app-game-control
-      (start)="startInAppComponent($event)"
-    ></app-game-control>
-    <br><label>Assignment's End</label>
+  <app-game-control
+    (start)="startInAppComponent($event)"
+  ></app-game-control>
+  <br>
+  <app-number-container *ngFor="let number of numbers">
+    <app-odd *ngIf="number%2==1; else evenNumber" [returnedNumber]="number" [class.oddApp]="oddOdd">Odd</app-odd>
+    <ng-template #evenNumber><app-even [returnedNumber]="number" [class.evenApp]="evenEven">Even</app-even></ng-template>
+    
+  </app-number-container>
+  <br><label>Assignment's End</label>
 
-    <hr>
+  <hr>
 
   <app-cockpit (serverCreated)="onServerAdded($event)" (bpCreated)="onBlueprintAdded($event)"></app-cockpit>
   <hr>
