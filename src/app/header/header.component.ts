@@ -8,15 +8,12 @@ import { Component, Output, EventEmitter } from "@angular/core";
 export class HeaderComponent{
     collapsed = true;
 
-    @Output("emitRecipes") recipesEmitted = new EventEmitter<{recipes: boolean, shoppingList: boolean}>();
-    @Output("emitShoppingList") shoppingListEmitted = new EventEmitter<{recipes: boolean, shoppingList: boolean}>();
+    @Output("emitComponent") componentEmitted = new EventEmitter<{recipes: boolean, shoppingList: boolean}>();
 
-    displayRecipes(){
-        this.recipesEmitted.emit({recipes: true, shoppingList: false});
-    }
-
-
-    displayShoppingList(){
-        this.shoppingListEmitted.emit({recipes: false, shoppingList: true});
+    handleNavigation(component: string){
+        if(component === "Recipes")
+            this.componentEmitted.emit({recipes: true, shoppingList: false});
+        else if (component === "Shopping List")
+            this.componentEmitted.emit({recipes: false, shoppingList: true});
     }
 }

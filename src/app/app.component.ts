@@ -8,12 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   displayRecipes = false;
 
-  showRecipes(data: {recipes: boolean, shoppingList: boolean}) {
-    if (data.recipes === true && data.shoppingList === false)
+  displayComponent(component: {recipes: boolean, shoppingList: boolean}) {
+    if (component.recipes === true && component.shoppingList === false)
       this.displayRecipes = true;
-  }
-  showShoppingList(data: {recipes: boolean, shoppingList: boolean}) {
-    if (data.recipes === false && data.shoppingList === true)
+    else if (component.recipes === false && component.shoppingList === true)
       this.displayRecipes = false;
   }
 }
