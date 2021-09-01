@@ -1,9 +1,9 @@
-<app-header></app-header>
+<app-header (emitRecipes)="showRecipes($event)" (emitShoppingList)="showShoppingList($event)"></app-header>
 <div class="container">
     <div class="row">
         <div class="com-md-12">
-            <app-recipes></app-recipes>
-            <app-shopping-list></app-shopping-list>
+            <app-recipes *ngIf="displayRecipes === true else displayShoppingList"></app-recipes>
+            <app-shopping-list #displayShoppingList></app-shopping-list>
         </div>
     </div>
 </div>
