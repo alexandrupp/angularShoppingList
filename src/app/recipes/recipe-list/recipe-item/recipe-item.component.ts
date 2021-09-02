@@ -9,10 +9,10 @@ import { Recipe } from '../../recipe.model';
 export class RecipeItemComponent implements OnInit {
 
   @Input() recipe: Recipe = new Recipe("", "", "");
-  @Output() emitRecipe = new EventEmitter<Recipe>();
+  @Output() recipeSelected = new EventEmitter<void>();
 
-  onClickRecipe(){
-    this.emitRecipe.emit(this.recipe);
+  onSelected(){
+    this.recipeSelected.emit();
   }
 
   constructor() { }

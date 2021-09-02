@@ -8,11 +8,7 @@ import { Recipe } from './recipe.model';
 })
 export class RecipesComponent implements OnInit {
 
-  @Input() clickedRecipe:Recipe = new Recipe("","","");
-
-  onEmitRecipe(recipe:Recipe){
-    this.clickedRecipe = recipe;
-  }
+  @Input() selectedRecipe:Recipe = new Recipe("","","");
   
   constructor() { }
 

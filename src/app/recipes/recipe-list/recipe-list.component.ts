@@ -26,10 +26,10 @@ export class RecipeListComponent implements OnInit {
     )
   ];
 
-  @Output() emitRecipe = new EventEmitter<Recipe>();
+  @Output() recipeWasSelected = new EventEmitter<Recipe>();
 
-  onEmitRecipe(recipe: Recipe){
-    this.emitRecipe.emit(recipe);
+  onRecipeSelected(recipe: Recipe){
+    this.recipeWasSelected.emit(recipe);
   }
 
 
