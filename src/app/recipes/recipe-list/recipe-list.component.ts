@@ -1,15 +1,15 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-
+import { Component, Output, EventEmitter } from '@angular/core';
 import { Recipe } from "../recipe.model";
 
 @Component({
   selector: 'app-recipe-list',
-  templateUrl: './recipe-list.component.html',
-  styleUrls: ['./recipe-list.component.css']
+  templateUrl: './recipe-list.component.html'
 })
-export class RecipeListComponent implements OnInit {
+export class RecipeListComponent {
+
+  @Output() recipeWasSelected = new EventEmitter<Recipe>();
   recipes: Recipe[] = [
-    new Recipe (
+    new Recipe(
       "Vegan Thai Rice Salad",
       `Fill a pot with salted water and bring it to the boil. Add rice and cook according to package instructions, then drain and let it cool down completely.
       Meanwhile, prep the veggies and make the dressing. 
@@ -26,16 +26,8 @@ export class RecipeListComponent implements OnInit {
     )
   ];
 
-  @Output() recipeWasSelected = new EventEmitter<Recipe>();
-
-  onRecipeSelected(recipe: Recipe){
+  onRecipeSelected(recipe: Recipe) {
     this.recipeWasSelected.emit(recipe);
-  }
-
-
-  constructor() { }
-
-  ngOnInit(): void {
   }
 
 }
