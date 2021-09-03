@@ -6,6 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  //Assignment's Start
+  numbers: number[] = [];
+
+  startInAppComponent(startData: {newNumber: number}){
+    this.numbers.push(startData.newNumber);
+  }
+
+  //Assignment's End
+
   serverElements = [{ type: "server", name: "Testserver", content: "Just a test!" }];
 
   onServerAdded(serverData: { serverName: string, serverContent: string }) {
