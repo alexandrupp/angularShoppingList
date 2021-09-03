@@ -1,0 +1,85 @@
+<label>Assignment Data Binding</label>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs">
+            <ol>
+                <li>Add a Input field which updates a property ("username") via Two-Way-BInding</li>
+                <li>Output the username properly via String Interpolation (in a paragraph below the input)</li>
+                <li>Add a button which may only be clicked if the username is NOT an empty string</li>
+                <li>Upon clicking the button, the username should be reset to an empty string</li>
+            </ol>
+
+            <label>Solution</label>
+
+            <br><input type="text" class="form-control" [(ngModel)]="username" (input)="onUpdateUsername($event)">
+            <p>Username is: {{username}}</p>
+            <button class="btn btn-primary" [disabled]="usernameIsEmpty" (click)="resetUsername()">I'm enabled if
+                Username is not empty</button>
+
+        </div>
+    </div>
+</div>
+
+<br><label>Assignment Data Binding's End</label>
+
+<hr>
+
+<label>Assignment Directives</label>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs">
+            <ol>
+                <li>Add a button which says Display Details</li>
+                <li>Add a paragraph with any content of your choice (e.g. Secret Password = Tuna)</li>
+                <li>Toggle the displaying of that paragraph with the button created in the first step</li>
+                <li>Log all button clicks in an array and output that array below the secret paragraph (maybe log a
+                    timestamp or simply an incrementing number</li>
+                <li>Starting at the 5th log item, give all future log items a blue background (via ngStyle) and white
+                    color (ngClass)</li>
+            </ol>
+
+            <label>Solution</label>
+
+            <br><button class="btn btn-primary" (click)="showSecretPassword()">Display Details</button>
+            <p *ngIf="displayPassword">Secret Password = Babylon</p>
+
+            <div *ngFor="let display of displayArray; let i = index"
+                [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent'}" [ngClass]="{password: i >=4 }">
+                {{display}}</div>
+
+        </div>
+    </div>
+</div>
+
+<br><label>Assignment Directives's End</label>
+
+<hr>
+
+<label>Server Name</label>
+
+<!-- <p>One way binding:</p>
+<input
+    type="text"
+    class="form-control"
+    (input) = "onUpdateServerName($event)"
+>
+
+<p>Two way binding:</p> -->
+<input type="text" class="form-control" [(ngModel)]="serverName">
+
+<!-- <p>{{ serverName }}</p> -->
+
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">
+    Add Server
+</button>
+
+<!-- <p>{{allowNewServer}}</p> -->
+<!-- <p [innerText]="allowNewServer"></p> -->
+<!-- <p>{{serverCreationStatus}}</p> -->
+<p *ngIf="serverCreated; else noServer">Server was created. Server name is {{ serverName }}</p>
+<ng-template #noServer>
+    <p>No server was created.</p>
+</ng-template>
+<app-server *ngFor="let server of servers"></app-server>
