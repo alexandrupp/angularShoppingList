@@ -9,19 +9,24 @@ import { NewAccountComponent } from './new-account/new-account.component';
 
 import { AccountsService } from './accounts.service';
 import { LogginService } from './logging.service';
+import { ActiveUsersComponent } from './active-users/active-users.component';
+import { InactiveUsersComponent } from './inactive-users/inactive-users.component';
+import { CounterService } from './counter.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     AccountComponent,
-    NewAccountComponent
+    NewAccountComponent,
+    ActiveUsersComponent,
+    InactiveUsersComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule
   ],
-  providers: [AccountsService, LogginService],
+  providers: [AccountsService, LogginService, CounterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
