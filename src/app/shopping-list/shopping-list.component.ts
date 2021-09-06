@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { Ingredient } from "../shared/ingredient.model"
+import { ShoppingListService } from './shopping-list.service';
 
 @Component({
   selector: 'app-shopping-list',
-  templateUrl: './shopping-list.component.html'
+  templateUrl: './shopping-list.component.html',
+  providers:[ShoppingListService]
 })
 export class ShoppingListComponent {
 
