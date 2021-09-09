@@ -11,6 +11,7 @@ import { UserComponent } from './users/user/user.component';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
 import { ServerComponent } from './servers/server/server.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 import { ServersService } from './servers/servers.service';
 import { AuthService } from './auth.service';
@@ -26,7 +27,8 @@ import { CanDeactivateGuardService } from './servers/edit-server/can-deactivate-
     UserComponent,
     EditServerComponent,
     ServerComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,
